@@ -17,6 +17,10 @@
     <version>${revision}</version>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 
         <!-- Sample API -->
         <dependency>
@@ -37,10 +41,10 @@
             <artifactId>spring-cloud-starter-dubbo</artifactId>
         </dependency>
 
-        <!-- Spring Cloud Nacos Service Discovery -->
+        <!-- Spring Cloud consul Service Discovery -->
         <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-consul-discovery</artifactId>
         </dependency>
     </dependencies>
 

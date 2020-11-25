@@ -21,6 +21,7 @@ import org.apache.dubbo.config.annotation.DubboReference;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,17 +32,22 @@ import org.springframework.web.bind.annotation.RestController;
  * @author <a href="mailto:mercyblitz@gmail.com">Mercy</a>
  */
 @EnableDiscoveryClient
-@EnableAutoConfiguration
 @RestController
+@SpringBootApplication
 public class DubboSpringCloudClientBootstrap {
 
-	@DubboReference
+	@DubboReference(protocol = "http")
 	private EchoService echoService;
 
 	@GetMapping("/echo")
 	public String echo(String message) {
 		return echoService.echo(message);
 	}
+
+    @GetMapping(value = "/hello")
+    public String healthCheck(){
+        return "hello,world";
+    }
 
 	public static void main(String[] args) {
 		SpringApplication.run(DubboSpringCloudClientBootstrap.class);

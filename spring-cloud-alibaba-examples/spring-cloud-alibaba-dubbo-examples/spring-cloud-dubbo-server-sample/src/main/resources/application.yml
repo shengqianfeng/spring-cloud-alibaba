@@ -1,16 +1,8 @@
 server:
-  port: 8080
-
-dubbo:
-  cloud:
-    subscribed-services: spring-cloud-alibaba-dubbo-server
-  protocols:
-    dubbo:
-      port: -1
-
+  port: 10086
 spring:
   application:
-    name: spring-cloud-alibaba-dubbo-client
+    name: spring-cloud-alibaba-dubbo-server
   main:
     allow-bean-definition-overriding: true
   cloud:
@@ -20,7 +12,6 @@ spring:
         health-check-path: /hello
       host: localhost
       port: 8500
-
 
 management:
   endpoints:
